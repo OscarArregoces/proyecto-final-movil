@@ -46,16 +46,10 @@ public class MainActivity extends AppCompatActivity {
                 }else{
                     addPersona(user);
                 }
-
-
-
             }
         });
 
     }
-
-
-
 
     public void addPersona(Usuario user) {
         service = Apis.getUsuarioService();
@@ -65,12 +59,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<Usuario> call, Response<Usuario> response) {
 
-                System.out.println(response);
-
                 if (response.isSuccessful()) {
                     Toast.makeText(MainActivity.this, "Bienvenido", Toast.LENGTH_LONG).show();
 
-                    Intent intent = new Intent(MainActivity.this, recordatorio.class);
+                    Intent intent = new Intent(MainActivity.this, NotasActivity.class);
                     startActivity(intent);
                 }else{
                     Toast.makeText(MainActivity.this, "Credenciales incorrectas", Toast.LENGTH_LONG).show();
@@ -81,6 +73,5 @@ public class MainActivity extends AppCompatActivity {
                 Log.e("Error:", t.getMessage());
             }
         });
-
     }
 }

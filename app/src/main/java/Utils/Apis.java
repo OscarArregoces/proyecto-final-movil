@@ -14,4 +14,8 @@ public class Apis {
 
         return Usuario.getUsuario(URL_001).create(UsuarioService.class);
     }
+
+    public static NotasServices getNotasService(){
+        return Notas.getNotas(URL_001).create(NotasServices.class);
+    }
 }
