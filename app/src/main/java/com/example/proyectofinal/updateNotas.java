@@ -35,11 +35,22 @@ public class updateNotas extends AppCompatActivity {
 
         Bundle extras = getIntent().getExtras();
         final int Id = extras.getInt("id");
+        final String nombre = extras.getString("nombre");
+        final String description = extras.getString("description");
+        final Boolean estado = extras.getBoolean("estado");
 
         txtNombre=(EditText)findViewById(R.id.nombreup);
         txtDescription=(EditText)findViewById(R.id.descriptionup);
         txtEstado= (CheckBox) findViewById(R.id.estadoup);
         btnSave=(Button)findViewById(R.id.OnUpdate);
+
+        txtNombre.setText(nombre);
+        txtDescription.setText(description);
+        if(estado){
+            txtEstado.setChecked(true);
+        }else {
+            txtEstado.setChecked(false);
+        }
 
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,7 +59,11 @@ public class updateNotas extends AppCompatActivity {
 
                 notas.setDescripcion(txtDescription.getText().toString());
                 notas.setNombre(txtNombre.getText().toString());
-                notas.setEstado(true);
+                if(txtEstado.isChecked()){
+                    notas.setEstado(true);
+                }else {
+                    notas.setEstado(false);
+                }
                 updateNotas(notas,Id);
             }
         });

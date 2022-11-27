@@ -42,15 +42,17 @@ public class createNotasActivity extends AppCompatActivity {
         txtEstado= (CheckBox) findViewById(R.id.estado);
         btnSave=(Button)findViewById(R.id.OnSave);
 
-        Bundle extras = getIntent().getExtras();
-
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Notas notas=new Notas();
                 notas.setNombre(txtNombre.getText().toString());
                 notas.setDescripcion(txtDescription.getText().toString());
-                notas.setEstado(true);
+                if(txtEstado.isChecked()){
+                    notas.setEstado(true);
+                }else {
+                    notas.setEstado(false);
+                }
 
                 if(txtNombre.length() == 0 || txtDescription.length() == 0){
                     Toast.makeText(createNotasActivity.this, "Todos los campos son necesarios ", Toast.LENGTH_LONG).show();
