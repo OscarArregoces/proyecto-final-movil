@@ -32,7 +32,7 @@ public class dashboard extends AppCompatActivity {
         btnRecordatorio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(dashboard.this, NotasActivity.class);
+                Intent intent = new Intent(dashboard.this,  recordatorio.class);
                 startActivity(intent);
             }
         });

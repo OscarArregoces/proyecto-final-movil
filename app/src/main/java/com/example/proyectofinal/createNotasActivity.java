@@ -53,7 +53,6 @@ public class createNotasActivity extends AppCompatActivity {
                 }else {
                     notas.setEstado(false);
                 }
-
                 if(txtNombre.length() == 0 || txtDescription.length() == 0){
                     Toast.makeText(createNotasActivity.this, "Todos los campos son necesarios ", Toast.LENGTH_LONG).show();
                 }else{

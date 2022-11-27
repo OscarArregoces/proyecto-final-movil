@@ -1,6 +1,7 @@
 package Utils;
 
 import java.util.List;
+import Model.Recordatorio;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
