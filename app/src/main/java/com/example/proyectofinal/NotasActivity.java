@@ -82,6 +82,7 @@ public class NotasActivity extends AppCompatActivity {
                                             @Override
                                             public void onClick(View view) {
                                                 Notas n = listNotas.get(i);
+                                                System.out.println(n.getNombre());
                                                 delete(n.getId(),i);
                                             }
                                         });
@@ -92,6 +93,9 @@ public class NotasActivity extends AppCompatActivity {
                                                 Intent intent =new Intent(NotasActivity.this,updateNotas.class);
                                                 Notas n = listNotas.get(i);
                                                 intent.putExtra("id", n.getId());
+                                                intent.putExtra("nombre", n.getNombre());
+                                                intent.putExtra("description",n.getDescripcion());
+                                                intent.putExtra("estado",n.getEstado());
                                                 startActivity(intent);
                                             }
                                         });
@@ -109,6 +113,7 @@ public class NotasActivity extends AppCompatActivity {
     }
 
     public void delete(int id, int position){
+        System.out.println(id);
         service = Apis.getNotasService();
         Call<Notas> call = service.deleteNotas(id);
         call.enqueue(

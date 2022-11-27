@@ -61,7 +61,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
     }
 
     public void loginUser(Usuario user) {
