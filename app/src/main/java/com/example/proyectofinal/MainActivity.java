@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     Toast.makeText(MainActivity.this, "Bienvenido", Toast.LENGTH_LONG).show();
 
-                    Intent intent = new Intent(MainActivity.this, NotasActivity.class);
+                    Intent intent = new Intent(MainActivity.this, dashboard.class);
                     startActivity(intent);
                 }else{
                     Toast.makeText(MainActivity.this, "Credenciales incorrectas", Toast.LENGTH_LONG).show();
