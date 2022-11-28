@@ -25,8 +25,7 @@ import retrofit2.Response;
 import com.example.proyectofinal.NotasActivity;
 
 public class NotasAdapter extends ArrayAdapter<Notas> {
-    AppCompatImageView b;
-    NotasActivity service;
+
     public NotasAdapter(Context context, int layout,List<Notas> notasList){
         super(context,0,notasList);
     }
@@ -42,11 +41,16 @@ public class NotasAdapter extends ArrayAdapter<Notas> {
 
         TextView txtNombre = convertView.findViewById(R.id.txtNombre);
         TextView txtDescription = convertView.findViewById(R.id.txtDescription);
+        TextView txtEstado = convertView.findViewById(R.id.txtEstado);
 
         txtNombre.setText(notas.getNombre());
         txtDescription.setText(notas.getDescripcion());
 
-
+        if(notas.getEstado()){
+            txtEstado.setText("Activo");
+        }else {
+            txtEstado.setText("Inactivo");
+        }
 
         return convertView;
     }
