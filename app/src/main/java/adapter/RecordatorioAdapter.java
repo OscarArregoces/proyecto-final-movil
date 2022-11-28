@@ -29,6 +29,10 @@ import com.example.proyectofinal.NotasActivity;
 public class RecordatorioAdapter extends ArrayAdapter<Recordatorio> {
     AppCompatImageView b;
     NotasActivity service;
+
+
+
+
     public RecordatorioAdapter(Context context, int layout,List<Recordatorio> recordatorioList){
         super(context,0,recordatorioList);
     }
@@ -46,11 +50,20 @@ public class RecordatorioAdapter extends ArrayAdapter<Recordatorio> {
         TextView txtDescription = convertView.findViewById(R.id.txtDescription);
         TextView txtFechaInicio = convertView.findViewById(R.id.txtFechaInicio);
         TextView txtFechaFinal = convertView.findViewById(R.id.txtFechaFinal);
+        TextView txtEstado = convertView.findViewById(R.id.txtEstado);
+
+
 
         txtNombre.setText(recordatorio.getNombre());
         txtDescription.setText(recordatorio.getDescripcion());
         txtFechaInicio.setText(recordatorio.getFecha_inicio());
         txtFechaFinal.setText(recordatorio.getFecha_final());
+
+        if( recordatorio.getEstado() == false){
+            txtEstado.setText("Inactivo");
+        }else{
+            txtEstado.setText("Activo");
+        }
 
 
 
