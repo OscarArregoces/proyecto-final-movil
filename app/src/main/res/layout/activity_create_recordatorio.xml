@@ -62,7 +62,7 @@
         app:layout_constraintTop_toBottomOf="@+id/OnSave"
         app:layout_constraintVertical_bias="0.553" />
 
-    <EditText
+    <TextView
         android:id="@+id/etSelectDate"
         android:layout_width="220dp"
         android:layout_height="47dp"

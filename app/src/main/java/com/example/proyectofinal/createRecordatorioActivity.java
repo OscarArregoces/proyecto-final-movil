@@ -28,7 +28,7 @@ public class createRecordatorioActivity extends AppCompatActivity {
 
     RecordatorioService service;
     private TextView tvSelectDate;   /*INICIO*/
-    private EditText etSelectDate;   /*FINAL*/
+    private TextView etSelectDate;   /*FINAL*/
     private Button onSave;
     private EditText txtNombre;
     private EditText txtDescription;
