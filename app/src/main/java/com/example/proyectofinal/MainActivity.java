@@ -11,7 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-
+import Model.Notas;
 import Model.Usuario;
 import Utils.Apis;
 import Utils.UsuarioService;
@@ -72,10 +72,12 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<Usuario> call, Response<Usuario> response) {
 
                 if (response.isSuccessful()) {
+                    System.out.println(response.message());
                     Toast.makeText(MainActivity.this, "Bienvenido", Toast.LENGTH_LONG).show();
 
                     Intent intent = new Intent(MainActivity.this, dashboard.class);
                     startActivity(intent);
+
                 }else{
                     Toast.makeText(MainActivity.this, "Credenciales incorrectas", Toast.LENGTH_LONG).show();
                 }

@@ -101,6 +101,7 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="32dp"
+        android:textColor="@color/primero"
         android:text="Crear recordatorio"
         android:textAppearance="@style/TextAppearance.AppCompat.Display2"
         app:layout_constraintBottom_toTopOf="@+id/nombre"
