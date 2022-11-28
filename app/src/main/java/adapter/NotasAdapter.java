@@ -42,9 +42,11 @@ public class NotasAdapter extends ArrayAdapter<Notas> {
         TextView txtNombre = convertView.findViewById(R.id.txtNombre);
         TextView txtDescription = convertView.findViewById(R.id.txtDescription);
         TextView txtEstado = convertView.findViewById(R.id.txtEstado);
+        TextView txtPropietario = convertView.findViewById(R.id.txtPropietario);
 
         txtNombre.setText(notas.getNombre());
         txtDescription.setText(notas.getDescripcion());
+        txtPropietario.setText(notas.getPropietario());
 
         if(notas.getEstado()){
             txtEstado.setText("Activo");

@@ -46,6 +46,9 @@ public class createRecordatorioActivity extends AppCompatActivity {
         txtDescription = findViewById(R.id.description);
         onSave = findViewById(R.id.OnSave);
 
+        Bundle extra = getIntent().getExtras();
+        final Integer id = extra.getInt("id");
+
         onSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -53,7 +56,8 @@ public class createRecordatorioActivity extends AppCompatActivity {
                 recordatorio.setNombre(txtNombre.getText().toString());
                 recordatorio.setDescripcion(txtDescription.getText().toString());
                 recordatorio.setFecha_inicio(tvSelectDate.getText().toString());
-               recordatorio.setFecha_final(etSelectDate.getText().toString());
+                recordatorio.setFecha_final(etSelectDate.getText().toString());
+                recordatorio.setPropietario(id.toString());
 
                 if(txtEstado.isChecked()){
                    recordatorio.setEstado(true);
@@ -64,7 +68,7 @@ public class createRecordatorioActivity extends AppCompatActivity {
                 if(txtNombre.length() == 0 || txtDescription.length() == 0 || etSelectDate.length() == 0 || tvSelectDate.length() == 0){
                     Toast.makeText(createRecordatorioActivity.this, "Todos los campos son necesarios ", Toast.LENGTH_LONG).show();
                 }else{
-                    addRecordatorio(recordatorio);
+                    addRecordatorio(recordatorio, id);
                 }
 
 
@@ -121,7 +125,7 @@ public class createRecordatorioActivity extends AppCompatActivity {
     }
 
 
-    public void addRecordatorio(Recordatorio recordatorio) {
+    public void addRecordatorio(Recordatorio recordatorio, Integer id) {
         service = Apis.getRecordatorioService();
 
         Call<Recordatorio> call = service.addRecordatorio(recordatorio);
@@ -131,6 +135,7 @@ public class createRecordatorioActivity extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     Toast.makeText(createRecordatorioActivity.this, "Recordatorio Guardado", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(createRecordatorioActivity.this, recordatorio.class);
+                    intent.putExtra("id",id);
                     startActivity(intent);
                 }else{
                     Toast.makeText(createRecordatorioActivity.this, "Datos incorrectas", Toast.LENGTH_LONG).show();

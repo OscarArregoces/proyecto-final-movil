@@ -21,13 +21,18 @@ public class Notas {
     @Expose
     private boolean estado;
 
+    @SerializedName("propietario")
+    @Expose
+    private String propietario;
 
 
-    public Notas(int id, String nombre, String descripcion, boolean estado) {
+
+    public Notas(int id, String nombre, String descripcion, boolean estado, String propietario) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.estado = estado;
+        this.propietario = propietario;
     }
 
     public Notas() {
@@ -40,6 +45,12 @@ public class Notas {
     }
 
     public void setId(int id) { this.id = id;  }
+
+    public String getPropietario() {
+        return propietario;
+    }
+
+    public void setPropietario(String propietario) { this.propietario = propietario;  }
 
     public String getNombre() {
         return nombre;

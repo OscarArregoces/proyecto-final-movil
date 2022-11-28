@@ -32,6 +32,7 @@ public class createNotasActivity extends AppCompatActivity {
     CheckBox txtEstado;
     Button btnSave;
 
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,12 +43,18 @@ public class createNotasActivity extends AppCompatActivity {
         txtEstado= (CheckBox) findViewById(R.id.estado);
         btnSave=(Button)findViewById(R.id.OnSave);
 
+        Bundle extra = getIntent().getExtras();
+        final Integer id = extra.getInt("id");
+        System.out.println("Create Notas activity : " + id);
+
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Notas notas=new Notas();
                 notas.setNombre(txtNombre.getText().toString());
                 notas.setDescripcion(txtDescription.getText().toString());
+                notas.setPropietario(id.toString());
+
                 if(txtEstado.isChecked()){
                     notas.setEstado(true);
                 }else {
@@ -56,13 +63,13 @@ public class createNotasActivity extends AppCompatActivity {
                 if(txtNombre.length() == 0 || txtDescription.length() == 0){
                     Toast.makeText(createNotasActivity.this, "Todos los campos son necesarios ", Toast.LENGTH_LONG).show();
                 }else{
-                    addPersona(notas);
+                    addPersona(notas, id);
                 }
             }
         });
     }
 
-    public void addPersona(Notas notas) {
+    public void addPersona(Notas notas, Integer id) {
         service = Apis.getNotasService();
 
         Call<Notas> call = service.addNotas(notas);
@@ -70,8 +77,9 @@ public class createNotasActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<Notas> call, Response<Notas> response) {
                 if (response.isSuccessful()) {
-                    Toast.makeText(createNotasActivity.this, "Nota Guardada exitosamente", Toast.LENGTH_LONG).show();
+                    Toast.makeText(createNotasActivity.this, "Nota Guardada", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(createNotasActivity.this, NotasActivity.class);
+                    intent.putExtra("id",id);
                     startActivity(intent);
                 }else{
                     Toast.makeText(createNotasActivity.this, "Datos incorrectas", Toast.LENGTH_LONG).show();

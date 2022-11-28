@@ -31,15 +31,20 @@ public class Recordatorio {
     @Expose
     private String fecha_final;
 
+    @SerializedName("propietario")
+    @Expose
+    private String propietario;
 
 
-    public Recordatorio(int id, String nombre, String descripcion, boolean estado, String fecha_inicio, String fecha_final) {
+
+    public Recordatorio(int id, String nombre, String descripcion, boolean estado, String fecha_inicio, String fecha_final, String propietario) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.estado = estado;
         this.fecha_inicio = fecha_inicio;
         this.fecha_final = fecha_final;
+        this.propietario = propietario;
     }
 
     public Recordatorio() {
@@ -51,6 +56,12 @@ public class Recordatorio {
         return id;
     }
     public void setId(int id) { this.id = id;  }
+
+    public String getPropietario() {
+        return propietario;
+    }
+
+    public void setPropietario(String propietario) { this.propietario = propietario;  }
 
 
     public String getNombre() {

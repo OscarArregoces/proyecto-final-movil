@@ -48,10 +48,14 @@ public class recordatorio extends AppCompatActivity {
         btnAdd=(FloatingActionButton)findViewById(R.id.AddRecordatorio);
         btnDashboard=(Button) findViewById(R.id.dashboard);
 
+        Bundle extra = getIntent().getExtras();
+        final Integer id = extra.getInt("id");
+
         btnDashboard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(recordatorio.this, dashboard.class);
+                intent.putExtra("id",id);
                 startActivity(intent);
             }
         });
@@ -60,6 +64,7 @@ public class recordatorio extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(recordatorio.this, createRecordatorioActivity.class);
+                intent.putExtra("id",id);
                 startActivity(intent);
             }
         });

@@ -38,6 +38,7 @@ public class NotasActivity extends AppCompatActivity {
     ArrayList<Notas> posiciones;
     Button btnDashboard;
 
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +48,10 @@ public class NotasActivity extends AppCompatActivity {
         listView =  (ListView) findViewById(R.id.notas_list);
         btnAdd=(FloatingActionButton)findViewById(R.id.AddNotas);
 
+        Bundle extra = getIntent().getExtras();
+        final Integer id = extra.getInt("id");
+        System.out.println("Notas activity : " +id);
+
 
         btnDashboard=(Button) findViewById(R.id.dashboard);
 
@@ -54,6 +59,7 @@ public class NotasActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(NotasActivity.this, dashboard.class);
+                intent.putExtra("id",id);
                 startActivity(intent);
             }
         });
@@ -62,6 +68,7 @@ public class NotasActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(NotasActivity.this, createNotasActivity.class);
+                intent.putExtra("id",id);
                 startActivity(intent);
             }
         });

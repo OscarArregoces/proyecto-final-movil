@@ -72,10 +72,10 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<Usuario> call, Response<Usuario> response) {
 
                 if (response.isSuccessful()) {
-                    System.out.println(response.message());
                     Toast.makeText(MainActivity.this, "Bienvenido", Toast.LENGTH_LONG).show();
-
                     Intent intent = new Intent(MainActivity.this, dashboard.class);
+                    System.out.println("Login" + response.body().getId());
+                    intent.putExtra("id", response.body().getId());
                     startActivity(intent);
 
                 }else{

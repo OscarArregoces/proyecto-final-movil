@@ -51,6 +51,7 @@ public class RecordatorioAdapter extends ArrayAdapter<Recordatorio> {
         TextView txtFechaInicio = convertView.findViewById(R.id.txtFechaInicio);
         TextView txtFechaFinal = convertView.findViewById(R.id.txtFechaFinal);
         TextView txtEstado = convertView.findViewById(R.id.txtEstado);
+        TextView txtPropietario = convertView.findViewById(R.id.txtPropietario);
 
 
 
@@ -58,6 +59,7 @@ public class RecordatorioAdapter extends ArrayAdapter<Recordatorio> {
         txtDescription.setText(recordatorio.getDescripcion());
         txtFechaInicio.setText(recordatorio.getFecha_inicio());
         txtFechaFinal.setText(recordatorio.getFecha_final());
+        txtPropietario.setText(recordatorio.getPropietario());
 
         if( recordatorio.getEstado() == false){
             txtEstado.setText("Inactivo");
