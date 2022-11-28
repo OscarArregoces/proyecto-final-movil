@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android Studio/ProyectoFinal/app/src/main/res/drawable/boton_principal.xml" value="0.275" />
+        <entry key="..\:/Android Studio/ProyectoFinal/app/src/main/res/drawable/boton_verde.xml" value="0.296" />
+        <entry key="..\:/Android Studio/ProyectoFinal/app/src/main/res/drawable/ninguno.xml" value="0.1075" />
         <entry key="..\:/Android Studio/ProyectoFinal/app/src/main/res/layout/activity_create_recordatorio.xml" value="0.30687830687830686" />
         <entry key="..\:/Android Studio/ProyectoFinal/app/src/main/res/layout/activity_dashboard.xml" value="0.35280797101449274" />
         <entry key="..\:/Android Studio/ProyectoFinal/app/src/main/res/layout/activity_main.xml" value="0.35280797101449274" />

@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -35,6 +36,7 @@ public class NotasActivity extends AppCompatActivity {
     List<Notas> listNotas;
     FloatingActionButton btnAdd;
     ArrayList<Notas> posiciones;
+    Button btnDashboard;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -44,6 +46,18 @@ public class NotasActivity extends AppCompatActivity {
 
         listView =  (ListView) findViewById(R.id.notas_list);
         btnAdd=(FloatingActionButton)findViewById(R.id.AddNotas);
+
+
+        btnDashboard=(Button) findViewById(R.id.dashboard);
+
+        btnDashboard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(NotasActivity.this, dashboard.class);
+                startActivity(intent);
+            }
+        });
+
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

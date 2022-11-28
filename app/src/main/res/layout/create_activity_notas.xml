@@ -3,12 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/segundo"
     android:layout_height="match_parent">
 
     <EditText
         android:id="@+id/nombre"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
         android:ems="10"
         android:hint="Nombre"
         android:inputType="textPersonName"
@@ -21,8 +22,8 @@
 
     <CheckBox
         android:id="@+id/estado"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
         android:text="Estado"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -33,9 +34,10 @@
 
     <Button
         android:id="@+id/OnSave"
-        android:layout_width="167dp"
-        android:layout_height="46dp"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
         android:text="Guardar"
+        android:background="@drawable/boton_verde"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
@@ -45,8 +47,8 @@
 
     <EditText
         android:id="@+id/description"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
         android:ems="10"
         android:hint="Descripcion"
         android:inputType="textPersonName"
@@ -67,7 +69,7 @@
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="32dp"
         android:text="CREAR NOTAS"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display2"
         app:layout_constraintBottom_toTopOf="@+id/nombre"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

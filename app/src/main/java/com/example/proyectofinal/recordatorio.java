@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -35,6 +36,7 @@ public class recordatorio extends AppCompatActivity {
     List<Recordatorio> listRecordatorios;
     ArrayAdapter<Recordatorio> adapter;
     ListView listView;
+    Button btnDashboard;
 
 
     @Override
@@ -44,6 +46,15 @@ public class recordatorio extends AppCompatActivity {
 
         listView =  (ListView) findViewById(R.id.recordatorio_list);
         btnAdd=(FloatingActionButton)findViewById(R.id.AddRecordatorio);
+        btnDashboard=(Button) findViewById(R.id.dashboard);
+
+        btnDashboard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(recordatorio.this, dashboard.class);
+                startActivity(intent);
+            }
+        });
 
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override

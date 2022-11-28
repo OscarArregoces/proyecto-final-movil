@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import Model.Usuario;
@@ -25,6 +26,7 @@ public class register extends AppCompatActivity {
     EditText txtEmail;
     EditText txtPassword;
     Button btnSave;
+    TextView btnInicio;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +37,15 @@ public class register extends AppCompatActivity {
         txtEmail=(EditText)findViewById(R.id.email);
         txtPassword=(EditText)findViewById(R.id.password);
         btnSave=(Button)findViewById(R.id.btnSave);
+        btnInicio=(TextView)findViewById(R.id.inicio);
+
+        btnInicio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(register.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
         btnSave.setOnClickListener(new View.OnClickListener() {
